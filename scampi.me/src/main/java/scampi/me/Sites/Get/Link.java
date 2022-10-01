@@ -16,7 +16,7 @@ public class Link implements Route {
 			MySQL.Exec("UPDATE `links` SET `clicks` = `clicks` + 1 WHERE `uid` = ?", request.params(":uid"));
 			response.redirect(r.getString("url"));
 		}
-		response.redirect("/");
+		response.redirect("https://link.scampi.me/");
 		return null;
 	}
 

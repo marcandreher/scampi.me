@@ -3,7 +3,7 @@
     <h1>scampi.me</h1>
     <strong>
         A free and open-source url shortener,<br>
-        visit it on <a href="http://scampi.me">scampi.me</a>
+        visit it on <a href="http://link.scampi.me">link.scampi.me</a>
     </strong><br><br>
 <br>
 </div>

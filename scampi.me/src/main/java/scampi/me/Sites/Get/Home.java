@@ -16,7 +16,6 @@ public class Home implements Route {
 	public Object handle(Request request, Response response) {
 		Base base = new Base(webMap, request, response);
 		base.setTitle("Page Not Found");
-		MySQL.Exec("UPDATE `links` SET `clicks` = `clicks` WHERE `uid` = ?", "ee");
 		
 		String uid = "";
 		if(!(request.queryParams("uid") == null)) {
@@ -32,24 +31,18 @@ public class Home implements Route {
 			}
 		}
 		int totalClicks = 0;
-		int siteClicks = 0;
 		int urlsTotal = 0;
 		try {
 			ResultSet getRs = MySQL.Query("SELECT * FROM `links`");
 			while(getRs.next()) {
-				if(!(getRs.getInt("id") == 9)) {
-					totalClicks = totalClicks + getRs.getInt("clicks");
-					urlsTotal++;
-				}else {
-					siteClicks = getRs.getInt("clicks");
-				}
+				totalClicks = totalClicks + getRs.getInt("clicks");
+				urlsTotal++;
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
 		webMap.put("totalClicks", totalClicks);
-		webMap.put("siteClicks", siteClicks);
 		webMap.put("urlsTotal", urlsTotal);
 		
 		

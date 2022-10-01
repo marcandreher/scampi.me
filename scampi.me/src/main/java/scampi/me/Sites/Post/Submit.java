@@ -27,7 +27,7 @@ public class Submit implements Route {
 			ResultSet r = MySQL.Query("SELECT * FROM `links` WHERE `uid` = ?", uid);
 			while(!r.next()) {
 				MySQL.Exec("INSERT INTO `links`(`url`, `uid`) VALUES (?,?)", url, uid);
-				response.redirect("/?uid="+uid);
+				response.redirect("https://link.scampi.me/?uid="+uid);
 				return null;
 			}
 		}
