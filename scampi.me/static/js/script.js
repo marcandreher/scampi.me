@@ -46,6 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
     return true;
   }
+  function onCopy() {
+    navigator.clipboard.writeText("https://scampi.me/"+uid);
+    alert("Copied the link: https://scampi.me/" + uid);
+  }
 
   function onSubmit() {
     var text = document.getElementById("linkTxt").value;

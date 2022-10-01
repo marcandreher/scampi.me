@@ -30,6 +30,8 @@ public class Config {
 			configMap.put("mysqldatabase", "scampi");
 			configMap.put("mysqlpassword", "");
 			
+			configMap.put("debug", "true");
+			
 			configObj.putAll(configMap);;
 			
 			PrintWriter writer = new PrintWriter("config.json", "UTF-8");

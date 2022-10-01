@@ -8,6 +8,8 @@ import java.util.Map;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateExceptionHandler;
 import scampi.me.Sites.Get.Home;
+import scampi.me.Sites.Get.Link;
+import scampi.me.Sites.Post.Submit;
 import scampi.me.Utils.Color;
 import scampi.me.Utils.Config;
 import scampi.me.Utils.MySQL;
@@ -75,6 +77,8 @@ public class Main {
 		
 		// INSERT ROUTES
 		getRoutes.put("/", new Home());
+		getRoutes.put("/:uid", new Link());
+		postRoutes.put("/create", new Submit());
 				
 		for (Map.Entry<String, Route> entry : getRoutes.entrySet())
 			Spark.get(entry.getKey(), entry.getValue());

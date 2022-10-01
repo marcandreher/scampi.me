@@ -46,6 +46,19 @@
     </div>
   </nav>
 
+  <#if uid??>
+  <div class="notification">
+    Your URL <a href="${url}">${url}</a> was shortened to:
+    <h3 class="title is-3"><a href="/${uid}">https://scampi.me/${uid}</a></h3>
+    <script>
+        var uid = "${uid}";
+    </script>
+    <button onclick="onCopy()" class="button is-black">Copy</button>
+    <a href="/${uid}" target="_blank"><button class="button is-black">Open in new window</button></a>
+
+  </div>
+  </#if>
+
   <section class="hero is-medium is-primary is-bold">
     <div class="hero-body">
       <div class="container">
@@ -59,19 +72,13 @@
     <div class="level-item has-text-centered">
       <div>
         <p class="heading">Shortened Url's</p>
-        <p class="title">%urls%</p>
+        <p class="title">${urlsTotal}</p>
       </div>
     </div>
     <div class="level-item has-text-centered">
       <div>
         <p class="heading">Total link clicks</p>
-        <p class="title">123</p>
-      </div>
-    </div>
-    <div class="level-item has-text-centered">
-      <div>
-        <p class="heading">Total website visits</p>
-        <p class="title">456K</p>
+        <p class="title">${totalClicks}</p>
       </div>
     </div>
   </section>
