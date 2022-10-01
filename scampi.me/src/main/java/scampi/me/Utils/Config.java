@@ -24,6 +24,12 @@ public class Config {
 			configMap.put("port", 80);
 			configMap.put("ip", "0.0.0.0");
 			
+			configMap.put("mysqlip", "localhost");
+			configMap.put("mysqlport", "3306");
+			configMap.put("mysqlusername", "root");
+			configMap.put("mysqldatabase", "scampi");
+			configMap.put("mysqlpassword", "");
+			
 			configObj.putAll(configMap);;
 			
 			PrintWriter writer = new PrintWriter("config.json", "UTF-8");
