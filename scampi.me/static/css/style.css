@@ -1,0 +1,23 @@
+.navbar-item img {
+    max-height: none!important;
+}
+
+.pad-top {
+    padding-top: 20px;
+}
+
+.tbox-scamp {
+    margin-left: 10px!important;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    margin-right: 10px!important;
+}
+.ft {
+    margin-left: 10px;
+}
+
+@media (max-width:600px) {
+    .is-mobile {
+        display: block!important;
+    }
+}
