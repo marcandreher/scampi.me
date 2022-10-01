@@ -41,6 +41,7 @@ public class Main {
 		
 		Spark.port(cfg.getInt("port"));
 		Spark.ipAddress(cfg.getString("ip"));
+		System.out.println(Prefix.INFO + "Scampi is running on " + cfg.getString("ip") + ":" + cfg.getInt("port"));
 		
 		freemarkerCfg.setDefaultEncoding("UTF-8");
 		freemarkerCfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
