@@ -27,12 +27,11 @@ public class Submit implements Route {
 			ResultSet r = MySQL.Query("SELECT * FROM `links` WHERE `uid` = ?", uid);
 			while(!r.next()) {
 				MySQL.Exec("INSERT INTO `links`(`url`, `uid`) VALUES (?,?)", url, uid);
-				response.redirect("https://link.scampi.me/?uid="+uid);
-				return null;
+				return uid + "\"" + url;
 			}
 		}
 		
-		return "failed";
+		return null;
 	}
 
 	public static String generateRandomBase64Token(int byteLength) {

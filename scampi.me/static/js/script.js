@@ -1,20 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-  
-    // Check if there are any navbar burgers
     if ($navbarBurgers.length > 0) {
-  
-      // Add a click event on each of them
       $navbarBurgers.forEach( el => {
         el.addEventListener('click', () => {
-  
-          // Get the target from the "data-target" attribute
           const target = el.dataset.target;
           const $target = document.getElementById(target);
-  
-          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
           el.classList.toggle('is-active');
           $target.classList.toggle('is-active');
   
@@ -46,19 +36,36 @@ document.addEventListener('DOMContentLoaded', () => {
   
     return true;
   }
-  function onCopy() {
-    navigator.clipboard.writeText("https://scampi.me/"+uid);
-    alert("Copied the link: https://scampi.me/" + uid);
+  function onCopy(copied) {
+    navigator.clipboard.writeText(copied);
+    alert("Copied the link: "+copied);
   }
 
   function onSubmit() {
-    var text = document.getElementById("linkTxt").value;
-    if(isValidHttpUrl(text) == false) {
+    var text = document.getElementById("linkTxt");
+    if(isValidHttpUrl(text.value) == false) {
         alert("This url isn't valid!");
         return false;
     }else{
-        var form = document.getElementById("form");
-        form.submit();
-        return true;
+      
+      $.ajax({
+        url: '/create',
+        type: 'POST',
+        data: {url: text.value},
+        success: function (result) {
+            var div = document.createElement("div");
+            const veri = document.getElementById('veri');
+            div.classList.toggle("link-box")
+            div.classList.toggle("box")
+            div.classList.toggle("has-text-centered")
+            var dm = result.split("\"");
+            text.value = "";
+            veri.style.color = "red";
+            div.innerHTML = "<i class=\"fa-solid fa-paperclip\"></i> <a href=\"%url%\">%url%</a> <i class=\"fa-solid fa-arrows-turn-right\"></i> <a href=\"%new%\">%new%    <a onclick=\"onCopy('%new%')\"class=\"button is-small is-copy\">Copy</a>"
+            .replaceAll("%new%", domain + "/" + dm[0]).replaceAll("%url%", dm[1]);
+          document.getElementById("messages").appendChild(div);
+        }
+      });
+
     }
   }

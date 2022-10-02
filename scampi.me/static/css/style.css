@@ -13,11 +13,35 @@
     margin-right: 10px!important;
 }
 .ft {
-    margin-left: 10px;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+.link-box {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.pd-show {
+    padding-top: 20px;
+}
+
+.is-copy {
+    height: 23px!important;
 }
 
 @media (max-width:600px) {
     .is-mobile {
         display: block!important;
+    }
+
+    .fa-10x {
+        font-size: 5em!important;
+    }
+
+    
+
+    .link-box {
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }

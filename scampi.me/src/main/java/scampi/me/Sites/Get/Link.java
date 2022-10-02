@@ -2,6 +2,7 @@ package scampi.me.Sites.Get;
 
 import java.sql.ResultSet;
 
+import scampi.me.Main.Main;
 import scampi.me.Utils.MySQL;
 import spark.Request;
 import spark.Response;
@@ -16,7 +17,7 @@ public class Link implements Route {
 			MySQL.Exec("UPDATE `links` SET `clicks` = `clicks` + 1 WHERE `uid` = ?", request.params(":uid"));
 			response.redirect(r.getString("url"));
 		}
-		response.redirect("https://link.scampi.me/");
+		response.redirect(Main.cfg.getString("domain"));
 		return null;
 	}
 

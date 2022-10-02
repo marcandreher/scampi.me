@@ -23,6 +23,7 @@ public class Config {
 			
 			configMap.put("port", 80);
 			configMap.put("ip", "0.0.0.0");
+			configMap.put("domain", "localhost");
 			
 			configMap.put("mysqlip", "localhost");
 			configMap.put("mysqlport", "3306");

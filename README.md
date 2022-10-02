@@ -27,5 +27,6 @@ Everyone can help scampi getting better, pull requests are accepted and wished f
 - [sparkjava/spark](http://sparkjava.com/)
 - [apache/freemarker](https://freemarker.apache.org/)
 - [bulma/bulma-css](https://bulma.io/)
+- [bulmaswatch/darkly](https://github.com/jenil/bulmaswatch/tree/gh-pages/darkly)
 - [canva](https://canva.com)
 ---

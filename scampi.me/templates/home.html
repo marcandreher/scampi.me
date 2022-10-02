@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Scampi - {titlebar}</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+  <title>Scampi - ${titlebar}</title>
+  <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/darkly/bulmaswatch.min.css">
   <link rel="stylesheet" href="/css/style.css">
   <script src="https://kit.fontawesome.com/3046fddc30.js" crossorigin="anonymous"></script>
 </head>
@@ -45,7 +45,7 @@
       </div>
     </div>
   </nav>
-
+<!--
   <#if uid??>
   <div class="notification">
     Your URL <a href="${url}">${url}</a> was shortened to:
@@ -58,7 +58,10 @@
 
   </div>
   </#if>
-
+-->
+<script>
+  var domain = "${domain}";
+</script>
   <section class="hero is-medium is-primary is-bold">
     <div class="hero-body">
       <div class="container">
@@ -82,6 +85,28 @@
       </div>
     </div>
   </section>
+
+
+  <div class="columns centered">
+    <div class="column has-text-centered">
+      <i class="fa-brands fa-git fa-10x"></i>
+      <h4 class="title is-4 pd-show">Open-source</h4>
+      <p>Feel free to contribute to Scampi on <a href="https://github.com/MarcPlaying/scampi.me">GitHub</a></p>
+    </div>
+    <div class="column has-text-centered">
+      <i class="fa-solid fa-user-secret fa-10x"></i>
+      <h4 class="title is-4 pd-show">Anonymous</h4>
+      <p>Only needed Data is being saved. We aren't saving IP Adresses or user locations</p>
+    </div>
+    <div class="column has-text-centered">
+      <i class="fa-solid fa-server fa-10x"></i>
+      <h4 class="title is-4 pd-show">Host it yourself </h4>
+      <p>Feel free to install Scampi on your Server! Download it <a href="https://github.com/MarcPlaying/scampi.me/releases/tag/v">here</a></p>
+    </div>
+  </div>
+
+
+
 <form id="form" onsubmit = "event.preventDefault(); onSubmit();" method="POST" action="/create">
   <div class="control has-icons-left has-icons-right tbox-scamp">
     <input oninput="onInputChanged()" id="linkTxt" class="input is-large" name="url" type="url" placeholder="Insert link here">
@@ -89,11 +114,14 @@
       <i class="fas fa-link"></i>
     </span>
     <span class="icon is-medium is-right">
-      <i class="fas fa-check" id="veri"></i>
+      <i class="fas fa-check" style="color:red;" id="veri"></i>
     </span>
   </div>
 </form>
 
+<div id="messages">
+  
+</div>
 
   <footer class="ft">
     <div class="content has-text">
@@ -103,6 +131,7 @@
           </svg> GitHub</a>
       </p>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/js/script.js"></script>
   </footer>
 
