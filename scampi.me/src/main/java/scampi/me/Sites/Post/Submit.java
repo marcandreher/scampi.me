@@ -26,7 +26,12 @@ public class Submit implements Route {
 			String uid = generateRandomBase64Token(15);
 			ResultSet r = MySQL.Query("SELECT * FROM `links` WHERE `uid` = ?", uid);
 			while(!r.next()) {
-				MySQL.Exec("INSERT INTO `links`(`url`, `uid`) VALUES (?,?)", url, uid);
+				if(request.queryParams("sec") == null) {
+					MySQL.Exec("INSERT INTO `links`(`url`, `uid`) VALUES (?,?)", url, uid);
+				}else {
+					MySQL.Exec("INSERT INTO `links`(`url`, `uid`, `waiting`) VALUES (?,?,?)", url, uid, request.queryParams("sec"));
+				}
+				
 				return uid + "\"" + url;
 			}
 		}

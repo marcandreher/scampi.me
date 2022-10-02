@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scampi - ${titlebar}</title>
+  <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/darkly/bulmaswatch.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://kit.fontawesome.com/3046fddc30.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <nav class="navbar is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+      <img src="/img/logo.png" alt="Scampi - Free url shortener" width="200" height="80">
+    </a>
+      <div class="navbar-burger burger" data-target="scampiNavbar">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="scampiNavbar" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="#">Home</a>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              <a href="mailto:mail@scampi.me" class="button is-primary" href="#">
+              <span class="icon">
+                <i class="far fa-envelope-open"></i>
+              </span>
+              <span>Contact</span>
+            </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+<script>
+  var domain = "${domain}";
+</script>
+
+<section class="hero is-medium is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">Scampi</h1>
+        <h2 class="subtitle">A free and open-source url shortener licensed under the MIT license</h2>
+      </div>
+    </div>
+  </section>

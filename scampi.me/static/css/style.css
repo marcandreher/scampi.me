@@ -10,8 +10,16 @@
     margin-left: 30px!important;
     margin-top: 200px;
     margin-bottom: 200px;
-    margin-right: 10px!important;
+    margin-right: 30px!important;
 }
+
+.waiting-scamp {
+    margin-left: 30px!important;
+    margin-right: 30px!important;
+    margin-bottom: 50px!important;
+    margin-top: 100px!important;
+}
+
 .ft {
     margin-left: 20px;
     margin-top: 30px;

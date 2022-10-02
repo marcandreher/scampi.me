@@ -128,4 +128,39 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
     }
+
+    
+  }
+
+  function onSubmitWaiting() {
+    var text = document.getElementById("linkTxtW");
+    var textW = document.getElementById("wSeconds");
+    if(isValidHttpUrl(text.value) == false) {
+        alert("This url isn't valid!");
+        return false;
+    }else{
+      
+      $.ajax({
+        url: '/create',
+        type: 'POST',
+        data: {url: text.value, sec: textW.value},
+        success: function (result) {
+            var div = document.createElement("div");
+
+            div.classList.toggle("link-box")
+            div.classList.toggle("box")
+            div.classList.toggle("has-text-centered")
+
+            var dm = result.split("\"");
+            text.value = "";
+            veri.style.color = "red";
+            div.innerHTML = "<i class=\"fa-solid fa-paperclip\"></i> <a href=\"%url%\">%url%</a> <i class=\"fa-solid fa-arrows-turn-right\"></i> <a href=\"%new%\">%new%    <a onclick=\"onCopy('%new%')\"class=\"button is-small is-copy\">Copy</a>"
+            .replaceAll("%new%", domain + "/" + dm[0]).replaceAll("%url%", dm[1]);
+          document.getElementById("messagesWaiting").appendChild(div);
+        }
+      });
+
+    }
+
+    
   }

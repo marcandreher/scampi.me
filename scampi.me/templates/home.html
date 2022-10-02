@@ -1,75 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Scampi - ${titlebar}</title>
-  <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/darkly/bulmaswatch.min.css">
-  <link rel="stylesheet" href="/css/style.css">
-  <script src="https://kit.fontawesome.com/3046fddc30.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-
-  <nav class="navbar is-transparent">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="/">
-      <img src="/img/logo.png" alt="Scampi - Free url shortener" width="200" height="80">
-    </a>
-      <div class="navbar-burger burger" data-target="scampiNavbar">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-
-    <div id="scampiNavbar" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" href="#">Home</a>
-      </div>
-
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="field is-grouped">
-            <p class="control">
-              <a href="mailto:mail@scampi.me" class="button is-primary" href="#">
-              <span class="icon">
-                <i class="far fa-envelope-open"></i>
-              </span>
-              <span>Contact</span>
-            </a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-<!--
-  <#if uid??>
-  <div class="notification">
-    Your URL <a href="${url}">${url}</a> was shortened to:
-    <h3 class="title is-3"><a href="/${uid}">https://scampi.me/${uid}</a></h3>
-    <script>
-        var uid = "${uid}";
-    </script>
-    <button onclick="onCopy()" class="button is-black">Copy</button>
-    <a href="/${uid}" target="_blank"><button class="button is-black">Open in new window</button></a>
-
-  </div>
-  </#if>
--->
-<script>
-  var domain = "${domain}";
-</script>
-  <section class="hero is-medium is-primary is-bold">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">Scampi</h1>
-        <h2 class="subtitle">A free and open-source url shortener licensed under the MIT license</h2>
-      </div>
-    </div>
-  </section>
+<#include "base.html">
 
   <section class="level is-mobile pad-top">
     <div class="level-item has-text-centered">
@@ -134,7 +63,32 @@
 
 <div class="hidden" id="unlock">Unlock</div>
 
-<div class="hidden" id="waiting">Waiting</div>
+<div class="hidden" id="waiting">
+
+  <form id="form" onsubmit = "event.preventDefault(); onSubmitWaiting();" method="POST" action="/create">
+
+
+    <div class="control has-icons-left has-icons-right waiting-scamp">
+      <input id="linkTxtW" class="input is-large" name="url" type="url" placeholder="Insert link here">
+      <span class="icon is-medium is-left">
+        <i class="fas fa-link"></i>
+      </span>
+    </div>
+
+    <div class="select is-rounded waiting-scamp">
+      <select id="wSeconds" name="seconds">
+        <option value="1">5 seconds</option>
+        <option value="2">10 seconds</option>
+        <option value="3">60 seconds</option>
+      </select>
+    </div>
+  </form>
+
+  <div id="messagesWaiting">
+      
+  </div>
+
+</div>
 
   <footer class="ft">
     <div class="content has-text">
