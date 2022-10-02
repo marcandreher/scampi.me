@@ -105,23 +105,36 @@
     </div>
   </div>
 
-
-
-<form id="form" onsubmit = "event.preventDefault(); onSubmit();" method="POST" action="/create">
-  <div class="control has-icons-left has-icons-right tbox-scamp">
-    <input oninput="onInputChanged()" id="linkTxt" class="input is-large" name="url" type="url" placeholder="Insert link here">
-    <span class="icon is-medium is-left">
-      <i class="fas fa-link"></i>
-    </span>
-    <span class="icon is-medium is-right">
-      <i class="fas fa-check" style="color:red;" id="veri"></i>
-    </span>
+  <div class="tabs is-medium">
+    <ul>
+      <li id="classicTab" class="is-active"><a onclick="classic()">Classic</a></li>
+      <li id="unlockTab"><a onclick="unlock()">Unlock</a></li>
+      <li id="waitingTab"><a onclick="waiting()">Waiting</a></li>
+    </ul>
   </div>
-</form>
 
-<div id="messages">
-  
+  <div id="classic">
+
+    <form id="form" onsubmit = "event.preventDefault(); onSubmit();" method="POST" action="/create">
+      <div class="control has-icons-left has-icons-right tbox-scamp">
+        <input oninput="onInputChanged()" id="linkTxt" class="input is-large" name="url" type="url" placeholder="Insert link here">
+        <span class="icon is-medium is-left">
+          <i class="fas fa-link"></i>
+        </span>
+        <span class="icon is-medium is-right">
+          <i class="fas fa-check" style="color:red;" id="veri"></i>
+        </span>
+      </div>
+    </form>
+
+    <div id="messages">
+      
+    </div>
 </div>
+
+<div class="hidden" id="unlock">Unlock</div>
+
+<div class="hidden" id="waiting">Waiting</div>
 
   <footer class="ft">
     <div class="content has-text">

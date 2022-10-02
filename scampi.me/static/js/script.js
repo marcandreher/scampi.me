@@ -25,6 +25,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
+  function unlock() {
+    var unlockTab = document.getElementById("unlockTab");
+    var classicTab = document.getElementById("classicTab");
+    var waitingTab = document.getElementById("waitingTab");
+
+    var unlock = document.getElementById("unlock");
+    var classic = document.getElementById("classic");
+    var waiting = document.getElementById("waiting");
+
+    if(!unlockTab.classList.contains("is-active")) {
+      unlockTab.classList.toggle("is-active")
+      classicTab.classList.remove("is-active");
+      waitingTab.classList.remove("is-active");
+
+      unlock.classList.remove("hidden");
+      classic.classList.add("hidden");
+      waiting.classList.add("hidden");
+    }
+  }
+
+  function classic() {
+    var unlockTab = document.getElementById("unlockTab");
+    var classicTab = document.getElementById("classicTab");
+    var waitingTab = document.getElementById("waitingTab");
+
+    var unlock = document.getElementById("unlock");
+    var classic = document.getElementById("classic");
+    var waiting = document.getElementById("waiting");
+
+    if(!classicTab.classList.contains("is-active")) {
+      classicTab.classList.toggle("is-active")
+      unlockTab.classList.remove("is-active");
+      waitingTab.classList.remove("is-active");
+
+      unlock.classList.add("hidden");
+      classic.classList.remove("hidden");
+      waiting.classList.add("hidden");
+    }
+  }
+
+  function waiting() {
+    var unlockTab = document.getElementById("unlockTab");
+    var classicTab = document.getElementById("classicTab");
+    var waitingTab = document.getElementById("waitingTab");
+
+    var unlock = document.getElementById("unlock");
+    var classic = document.getElementById("classic");
+    var waiting = document.getElementById("waiting");
+
+    if(!waitingTab.classList.contains("is-active")) {
+      waitingTab.classList.toggle("is-active")
+      classicTab.classList.remove("is-active");
+      unlockTab.classList.remove("is-active");
+
+      unlock.classList.add("hidden");
+      classic.classList.add("hidden");
+      waiting.classList.remove("hidden");
+    }
+  }
+
   function isValidHttpUrl(string) {
     let url;
     
