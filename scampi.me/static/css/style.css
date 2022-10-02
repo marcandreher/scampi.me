@@ -15,9 +15,9 @@
 
 .waiting-scamp {
     margin-left: 30px!important;
+    margin-top: 200px;
+    margin-bottom: 50px;
     margin-right: 30px!important;
-    margin-bottom: 50px!important;
-    margin-top: 100px!important;
 }
 
 .ft {
@@ -27,6 +27,12 @@
 .link-box {
     margin-left: 50px;
     margin-right: 50px;
+}
+
+.op-box {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 83px;
 }
 
 .pd-show {
