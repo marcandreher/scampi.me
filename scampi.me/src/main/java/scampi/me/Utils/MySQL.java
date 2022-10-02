@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import scampi.me.Main.Main;
+import scampi.me.Main;
 
 public final class MySQL {
 	private static Connection con = null;

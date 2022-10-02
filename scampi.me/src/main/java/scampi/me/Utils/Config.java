@@ -15,6 +15,8 @@ public class Config {
 	public JSONObject objConfig = null;
 	private File configFile = null;
 	
+	// I don't know why line 38 is unchecked the Type of the Map seems to be incorrect.
+	@SuppressWarnings("unchecked")
 	public Config() throws Exception {
 		configFile = new File("config.json");
 		if(!configFile.exists()) {

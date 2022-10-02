@@ -61,7 +61,36 @@
     </div>
 </div>
 
-<div class="hidden" id="unlock">Unlock</div>
+<div class="hidden" id="unlock">
+    <div class="control has-icons-left has-icons-right action-scamp">
+      <input id="linkTxtAc" class="input is-large" name="url" type="url" placeholder="Insert link here">
+      <span class="icon is-medium is-left">
+        <i class="fas fa-link"></i>
+      </span>
+    </div>
+
+    <button onclick="addAction()" class="button action-btn is-primary">Add Action</button>
+    <div id="addaction" class="hidden pd">
+      <div class="select">
+        <select id="iconSelector">
+          <#list icons>
+            <#items as icon>
+            <option value="${icon.ID}">${icon.name}</option>
+            </#items>
+          </#list>
+        </select>
+      </div>
+      <input id="actionName" class="input" type="text" placeholder="Subscribe to YouTube">
+      <input id="actionLink" class="input" type="text" placeholder="https://www.youtube.com/c/youtube">
+      <button onclick="submitAction()" class="button  is-primary ma-top">Add Action to Link</button>
+    </div>
+  <div id="messagesUnlock">
+    
+  </div>
+
+  <button onclick="submitLinkCreation()" class="button action-btn is-primary ma-top">Submit link with Actions</button>
+
+</div>
 
 <div class="hidden" id="waiting">
 

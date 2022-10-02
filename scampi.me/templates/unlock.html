@@ -1,0 +1,29 @@
+<#include "base.html">
+<div style="margin-top: 20px;"class="container is-max-desktop">
+<article class="message">
+    <div class="message-header">
+      <p>Unlock your Link</p>
+    </div>
+    <script>var actions = 0;</script>
+    <div class="message-body">
+        <#list actionList>
+        <#items as action>
+        <script>actions = actions + 1;</script>
+        <a style="text-decoration: none;" onclick="onUnlock()" href="${action.link}" target="_blank"><button class="button is-fullwidth ${action.color}">${action.fontIcon}&nbsp;${action.text}</button></a>
+        </#items>
+      </#list>
+      <div id="loading">
+      <progress style="margin-top: 10px;" class="progress is-small is-primary" max="100">15%</progress>
+        </div>
+    </div>
+    <script>
+        var unlocked = 0;
+        function onUnlock() {
+            unlocked = unlocked + 1;
+            if(unlocked == actions) {
+                document.getElementById("loading").innerHTML = "<a style=\"text-decoration: none; padding-top: 10px;\" href=\"${url}\"><button class=\"button is-fullwidth\">Open URL</button></a>";
+            }
+        }
+    </script>
+  </article>
+</div>

@@ -85,6 +85,75 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  var actionArray = [];
+
+  function submitAction() {
+    var select = document.getElementById("iconSelector");
+    var nameTb = document.getElementById("actionName");
+    var linkTb = document.getElementById("actionLink");
+
+    if(nameTb.value == "" || linkTb.value == "") {
+      alert("Please fill your form out");
+      return;
+    }
+
+    var ac = new Action();
+    ac.id = $('#iconSelector').val();
+    ac.name = nameTb.value;
+    ac.link = linkTb.value;
+    actionArray.push(ac);
+
+    var div = document.createElement("div");
+    div.classList.toggle("link-box")
+    div.classList.toggle("box")
+    div.classList.toggle("has-text-centered")
+
+    div.innerHTML = "Added action " + ac.name;
+    document.getElementById("messagesUnlock").appendChild(div);
+    
+    select.value = 1;
+    nameTb.value = "";
+    linkTb.value = "";
+  }
+
+  function submitLinkCreation() {
+    var text = document.getElementById("linkTxtAc");
+    if(actionArray.length == 0) {
+      alert("Add a action to create a locked link")
+    }
+
+    $.ajax({
+      url: '/create',
+      type: 'POST',
+      data: {url: text.value},
+      success: function (result) {
+          var div = document.createElement("div");
+          div.classList.toggle("link-box")
+          div.classList.toggle("box")
+          div.classList.toggle("has-text-centered")
+          var dm = result.split("\"");
+          text.value = "";
+          
+          div.innerHTML = "<i class=\"fa-solid fa-paperclip\"></i> <a href=\"%url%\">%url%</a> <i class=\"fa-solid fa-arrows-turn-right\"></i> <a href=\"%new%\">%new%    <a onclick=\"onCopy('%new%')\"class=\"button is-small is-copy\">Copy</a>"
+          .replaceAll("%new%", domain + "/" + dm[0]).replaceAll("%url%", dm[1]);
+          
+          for (var action of actionArray) {
+            $.ajax({
+              url: '/createac',
+              type: 'POST',
+              data: {uid: dm[0], id: action.id, text: action.name, link: action.link},
+              success: function (result) {
+
+              }
+            });
+          }
+          actionArray = [];
+        document.getElementById("messagesUnlock").appendChild(div);
+      }
+    });
+  }
+  
+
   function isValidHttpUrl(string) {
     let url;
     
@@ -130,6 +199,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     
+  }
+  class Action {
+    
+    id = 0;
+    name = "";
+    link = "";
+
+  }
+
+  function addAction() {
+
+      $( "#addaction" ).slideToggle( "slow", function() {
+         
+      });
+
   }
 
   function onSubmitWaiting() {

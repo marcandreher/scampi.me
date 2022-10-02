@@ -6,6 +6,10 @@
     padding-top: 20px;
 }
 
+.ma-top {
+    margin-top: 20px;
+}
+
 .tbox-scamp {
     margin-left: 30px!important;
     margin-top: 200px;
@@ -20,6 +24,18 @@
     margin-right: 30px!important;
 }
 
+.action-scamp {
+    margin-left: 30px!important;
+    margin-top: 200px;
+    margin-bottom: 50px;
+    margin-right: 30px!important;
+}
+
+.action-btn {
+    margin-left: 30px;
+    margin-bottom: 11.5px;
+}
+
 .ft {
     margin-left: 20px;
     margin-top: 30px;
@@ -27,6 +43,12 @@
 .link-box {
     margin-left: 50px;
     margin-right: 50px;
+}
+
+.pd {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 83px;
 }
 
 .op-box {

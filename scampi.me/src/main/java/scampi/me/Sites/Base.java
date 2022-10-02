@@ -5,7 +5,7 @@ import java.io.Writer;
 import java.util.Map;
 
 import freemarker.template.Template;
-import scampi.me.Main.Main;
+import scampi.me.Main;
 import scampi.me.Utils.Prefix;
 import spark.Request;
 import spark.Response;
