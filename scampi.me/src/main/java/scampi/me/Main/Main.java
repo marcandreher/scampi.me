@@ -35,7 +35,7 @@ public class Main {
 				+ " |___/  \\___|  \\__,_| |_| |_| |_| | .__/  |_| (_) |_| |_| |_|  \\___|\r\n"
 				+ "                                  | |                               \r\n"
 				+ "                                  |_|                               \n"
-				+ "By Marc Andre Herpers - 1.0 - MIT LICENSE\n");
+				+ "By Marc Andre Herpers - 1.1 - MIT LICENSE\n");
 		System.out.println(Prefix.INFO + "Loading config.json");
 		try {
 			cfg = new Config();

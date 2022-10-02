@@ -18,19 +18,7 @@ public class Home implements Route {
 		Base base = new Base(webMap, request, response);
 		base.setTitle("Url Shortener");
 		webMap.put("domain", Main.cfg.getString("domain"));
-		String uid = "";
-		if(!(request.queryParams("uid") == null)) {
-			try {
-				uid = request.queryParams("uid");
-				ResultSet getRs = MySQL.Query("SELECT * FROM `links` WHERE `uid` = ?", uid);
-				while(getRs.next()) {
-					webMap.put("uid", uid);
-					webMap.put("url", getRs.getString("url"));
-				}
-			}catch(Exception e) {
-				
-			}
-		}
+
 		int totalClicks = 0;
 		int urlsTotal = 0;
 		try {
