@@ -69,6 +69,21 @@
     height: 23px!important;
 }
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  #wrapper {
+    flex: 1;
+  }
+
+  .footer {
+    padding-bottom: 1rem!important;
+    padding-top: 1rem!important;
+  }
+
 @media (max-width:600px) {
     .is-mobile {
         display: block!important;
@@ -77,8 +92,6 @@
     .fa-10x {
         font-size: 5em!important;
     }
-
-    
 
     .link-box {
         margin-left: 10px;

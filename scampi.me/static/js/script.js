@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     div.classList.toggle("has-text-centered")
 
     div.innerHTML = "Added action " + ac.name;
-    document.getElementById("messagesUnlock").appendChild(div);
+    document.getElementById("messagesShortened").appendChild(div);
     
     select.value = 1;
     nameTb.value = "";
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
           text.value = "";
           
           div.innerHTML = "<i class=\"fa-solid fa-paperclip\"></i> <a href=\"%url%\">%url%</a> <i class=\"fa-solid fa-arrows-turn-right\"></i> <a href=\"%new%\">%new%    <a onclick=\"onCopy('%new%')\"class=\"button is-small is-copy\">Copy</a>"
-          .replaceAll("%new%", domain + "/" + dm[0]).replaceAll("%url%", dm[1]);
+          .replaceAll("%new%", domain + "/l/" + dm[0]).replaceAll("%url%", dm[1]);
           
           for (var action of actionArray) {
             $.ajax({
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
           }
           actionArray = [];
-        document.getElementById("messagesUnlock").appendChild(div);
+        document.getElementById("messagesShortened").appendChild(div);
       }
     });
   }
@@ -191,8 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
             text.value = "";
             veri.style.color = "red";
             div.innerHTML = "<i class=\"fa-solid fa-paperclip\"></i> <a href=\"%url%\">%url%</a> <i class=\"fa-solid fa-arrows-turn-right\"></i> <a href=\"%new%\">%new%    <a onclick=\"onCopy('%new%')\"class=\"button is-small is-copy\">Copy</a>"
-            .replaceAll("%new%", domain + "/" + dm[0]).replaceAll("%url%", dm[1]);
-          document.getElementById("messages").appendChild(div);
+            .replaceAll("%new%", domain + "/l/"+ dm[0]).replaceAll("%url%", dm[1]);
+          document.getElementById("messagesShortened").appendChild(div);
         }
       });
 
@@ -239,8 +239,8 @@ document.addEventListener('DOMContentLoaded', () => {
             text.value = "";
             veri.style.color = "red";
             div.innerHTML = "<i class=\"fa-solid fa-paperclip\"></i> <a href=\"%url%\">%url%</a> <i class=\"fa-solid fa-arrows-turn-right\"></i> <a href=\"%new%\">%new%    <a onclick=\"onCopy('%new%')\"class=\"button is-small is-copy\">Copy</a>"
-            .replaceAll("%new%", domain + "/" + dm[0]).replaceAll("%url%", dm[1]);
-          document.getElementById("messagesWaiting").appendChild(div);
+            .replaceAll("%new%", domain + "/l/" + dm[0]).replaceAll("%url%", dm[1]);
+            document.getElementById("messagesShortened").appendChild(div);
         }
       });
 

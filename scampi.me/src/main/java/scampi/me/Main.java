@@ -9,12 +9,14 @@ import freemarker.template.Configuration;
 import freemarker.template.TemplateExceptionHandler;
 import scampi.me.Sites.Get.Home;
 import scampi.me.Sites.Get.Link;
+import scampi.me.Sites.Get.SimpleTemplate;
 import scampi.me.Sites.Post.Submit;
 import scampi.me.Sites.Post.SubmitAction;
 import scampi.me.Utils.Color;
 import scampi.me.Utils.Config;
 import scampi.me.Utils.MySQL;
-import scampi.me.Utils.Prefix;
+import scampi.me.Utils.Prefix;import spark.Request;
+import spark.Response;
 import spark.Route;
 import spark.Spark;
 
@@ -68,6 +70,11 @@ public class Main {
 			templateFiles.mkdir();
 		}
 		
+		File simpleTemplateFiles = new File("templates/simple");
+		if(!simpleTemplateFiles.exists()) {
+			simpleTemplateFiles.mkdir();
+		}
+		
 		Spark.externalStaticFileLocation("static/");
 		
 		try {
@@ -76,11 +83,22 @@ public class Main {
 			System.out.println(Prefix.ERROR + "Failed to load template folder");
 		}
 		
+		
+		// SIMPLE TEMPLATES
+		for(File f : simpleTemplateFiles.listFiles()) {
+				String title = f.getName().replace(".html", "");
+				getRoutes.put("/"+title, new SimpleTemplate(f.getName(), title));
+				System.out.println(Prefix.INFO + "Loaded SimpleTemplate "+f.getName() +" on /" + title);
+		}
+
+		
 		// INSERT ROUTES
 		getRoutes.put("/", new Home());
-		getRoutes.put("/:uid", new Link());
+		getRoutes.put("/l/:uid", new Link());
 		postRoutes.put("/create", new Submit());
 		postRoutes.put("/createac", new SubmitAction());
+		
+	
 				
 		for (Map.Entry<String, Route> entry : getRoutes.entrySet())
 			Spark.get(entry.getKey(), entry.getValue());
