@@ -15,8 +15,7 @@ import scampi.me.Sites.Post.SubmitAction;
 import scampi.me.Utils.Color;
 import scampi.me.Utils.Config;
 import scampi.me.Utils.MySQL;
-import scampi.me.Utils.Prefix;import spark.Request;
-import spark.Response;
+import scampi.me.Utils.Prefix;
 import spark.Route;
 import spark.Spark;
 
@@ -49,7 +48,7 @@ public class Main {
 		
 		Spark.port(cfg.getInt("port"));
 		Spark.ipAddress(cfg.getString("ip"));
-		System.out.println(Prefix.INFO + "Scampi is running on " + cfg.getString("ip") + ":" + cfg.getInt("port"));
+		System.out.println(Prefix.INFO + "Scampi for Servers is running on " + cfg.getString("ip") + ":" + cfg.getInt("port"));
 		
 		mysql = new MySQL(cfg.getString("mysqlusername"), cfg.getString("mysqlpassword"),
 				cfg.getString("mysqldatabase"), cfg.getString("mysqlip"),
