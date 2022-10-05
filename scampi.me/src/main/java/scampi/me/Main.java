@@ -86,7 +86,7 @@ public class Main {
 		// SIMPLE TEMPLATES
 		for(File f : simpleTemplateFiles.listFiles()) {
 				String title = f.getName().replace(".html", "");
-				getRoutes.put("/"+title, new SimpleTemplate(f.getName(), title));
+				getRoutes.put("/"+title, new SimpleTemplate("simple/"+f.getName(), title));
 				System.out.println(Prefix.INFO + "Loaded SimpleTemplate "+f.getName() +" on /" + title);
 		}
 
