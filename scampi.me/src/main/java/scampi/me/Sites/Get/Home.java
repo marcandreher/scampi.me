@@ -13,7 +13,7 @@ import spark.Response;
 import spark.Route;
 
 public class Home implements Route {
-	
+
 	public HashMap<String, Object> webMap = new HashMap<String, Object>();
 
 	public Object handle(Request request, Response response) {
@@ -26,17 +26,17 @@ public class Home implements Route {
 		int urlsTotal = 0;
 		try {
 			ResultSet getRs = MySQL.Query("SELECT * FROM `links`");
-			while(getRs.next()) {
+			while (getRs.next()) {
 				totalClicks = totalClicks + getRs.getInt("clicks");
 				urlsTotal++;
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		try {
 			ResultSet getIconRs = MySQL.Query("SELECT * FROM `icons`");
-			while(getIconRs.next()) {
+			while (getIconRs.next()) {
 				Icon i = new Icon();
 				i.setID(getIconRs.getInt("id"));
 				i.setColor(getIconRs.getString("btncolor"));
@@ -44,17 +44,15 @@ public class Home implements Route {
 				i.setName(getIconRs.getString("name"));
 				fontAwesomeIcons.add(i);
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		webMap.put("icons", fontAwesomeIcons);
 		webMap.put("totalClicks", totalClicks);
 		webMap.put("urlsTotal", urlsTotal);
-		
-		
+
 		return base.renderTemplate("home.html");
 
-		
 	}
 }

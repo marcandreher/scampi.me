@@ -15,17 +15,17 @@ public class SubmitAction implements Route {
 		String ac = request.queryParams("id");
 		String text = request.queryParams("text");
 		String link = request.queryParams("link");
-		
-		MySQL.Exec("INSERT INTO `actions`(`uid`, `iconid`, `text`, `link`) VALUES (?,?,?,?)", uid,ac,text,link);
-		
+
+		MySQL.Exec("INSERT INTO `actions`(`uid`, `iconid`, `text`, `link`) VALUES (?,?,?,?)", uid, ac, text, link);
+
 		return "Action created";
 	}
 
 	public static String generateRandomBase64Token(int byteLength) {
-	    SecureRandom secureRandom = new SecureRandom();
-	    byte[] token = new byte[byteLength];
-	    secureRandom.nextBytes(token);
-	    return Base64.getUrlEncoder().withoutPadding().encodeToString(token); //base64 encoding
+		SecureRandom secureRandom = new SecureRandom();
+		byte[] token = new byte[byteLength];
+		secureRandom.nextBytes(token);
+		return Base64.getUrlEncoder().withoutPadding().encodeToString(token); // base64 encoding
 	}
 
 }

@@ -8,13 +8,13 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
-public class SimpleTemplate implements Route{
-	
+public class SimpleTemplate implements Route {
+
 	private String template;
 	private String title;
-	
+
 	private HashMap<String, Object> webMap = new HashMap<String, Object>();
-	
+
 	public SimpleTemplate(String template, String title) {
 		this.template = template;
 		this.title = title;

@@ -51,7 +51,7 @@ public final class MySQL {
 				stmt.setString(i + 1, args[i]);
 			if (Boolean.parseBoolean(Main.cfg.getString("debug")) == true)
 				System.out.println(Prefix.MYSQL + stmt.toString());
-				return stmt.executeQuery();
+			return stmt.executeQuery();
 		} catch (Exception ex) {
 			System.out.println(Prefix.MYSQL + ex.getMessage());
 			return null;
@@ -65,7 +65,7 @@ public final class MySQL {
 				stmt.setString(i + 1, args[i]);
 			if (Boolean.parseBoolean(Main.cfg.getString("debug")) == true)
 				System.out.println(Prefix.MYSQL + stmt.toString());
-				return stmt.execute();
+			return stmt.execute();
 		} catch (Exception ex) {
 			System.out.println(Prefix.MYSQL + ex.getMessage());
 			return false;
